@@ -1,0 +1,400 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": { "major": 3, "minor": 31, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "linux-global-static",
+      "description": "Linux static using system wxWidgets",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/linux-global-static",
+      "cacheVariables": {
+        "USE_VCPKG": "OFF",
+        "WX_BUILD_STATIC": "ON",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "linux-global-dynamic",
+      "description": "Linux dynamic using system wxWidgets",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/linux-global-dynamic",
+      "cacheVariables": {
+        "USE_VCPKG": "OFF",
+        "WX_BUILD_STATIC": "OFF",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "linux-vcpkg-static",
+      "description": "Linux static using vcpkg",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/linux-vcpkg-static",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "USE_VCPKG": "ON",
+        "WX_BUILD_STATIC": "ON",
+        "VCPKG_TARGET_TRIPLET": "x64-linux",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "linux-vcpkg-dynamic",
+      "description": "Linux dynamic using vcpkg",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/linux-vcpkg-dynamic",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "USE_VCPKG": "ON",
+        "WX_BUILD_STATIC": "OFF",
+        "VCPKG_TARGET_TRIPLET": "x64-linux",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+
+    {
+      "name": "freebsd-global-static",
+      "description": "FreeBSD static system wxWidgets",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/freebsd-global-static",
+      "cacheVariables": {
+        "USE_VCPKG": "OFF",
+        "WX_BUILD_STATIC": "ON",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "freebsd-global-dynamic",
+      "description": "FreeBSD dynamic system wxWidgets",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/freebsd-global-dynamic",
+      "cacheVariables": {
+        "USE_VCPKG": "OFF",
+        "WX_BUILD_STATIC": "OFF",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "freebsd-vcpkg-static",
+      "description": "FreeBSD static vcpkg",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/freebsd-vcpkg-static",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "USE_VCPKG": "ON",
+        "WX_BUILD_STATIC": "ON",
+        "VCPKG_TARGET_TRIPLET": "x64-freebsd",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "freebsd-vcpkg-dynamic",
+      "description": "FreeBSD dynamic vcpkg",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/freebsd-vcpkg-dynamic",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "USE_VCPKG": "ON",
+        "WX_BUILD_STATIC": "OFF",
+        "VCPKG_TARGET_TRIPLET": "x64-freebsd",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+
+    {
+      "name": "macos-intel-global-static",
+      "description": "macOS Intel static system wxWidgets",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/macos-intel-global-static",
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "x86_64",
+        "USE_VCPKG": "OFF",
+        "WX_BUILD_STATIC": "ON",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "macos-intel-global-dynamic",
+      "description": "macOS Intel dynamic system wxWidgets",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/macos-intel-global-dynamic",
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "x86_64",
+        "USE_VCPKG": "OFF",
+        "WX_BUILD_STATIC": "OFF",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "macos-intel-vcpkg-static",
+      "description": "macOS Intel static vcpkg",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/macos-intel-vcpkg-static",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "x86_64",
+        "USE_VCPKG": "ON",
+        "WX_BUILD_STATIC": "ON",
+        "VCPKG_TARGET_TRIPLET": "x64-osx",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "macos-intel-vcpkg-dynamic",
+      "description": "macOS Intel dynamic vcpkg",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/macos-intel-vcpkg-dynamic",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "x86_64",
+        "USE_VCPKG": "ON",
+        "WX_BUILD_STATIC": "OFF",
+        "VCPKG_TARGET_TRIPLET": "x64-osx",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+
+    {
+      "name": "macos-arm-global-static",
+      "description": "macOS ARM static system wxWidgets",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/macos-arm-global-static",
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "arm64",
+        "USE_VCPKG": "OFF",
+        "WX_BUILD_STATIC": "ON",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "macos-arm-global-dynamic",
+      "description": "macOS ARM dynamic system wxWidgets",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/macos-arm-global-dynamic",
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "arm64",
+        "USE_VCPKG": "OFF",
+        "WX_BUILD_STATIC": "OFF",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "macos-arm-vcpkg-static",
+      "description": "macOS ARM static vcpkg",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/macos-arm-vcpkg-static",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "arm64",
+        "USE_VCPKG": "ON",
+        "WX_BUILD_STATIC": "ON",
+        "VCPKG_TARGET_TRIPLET": "arm64-osx",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "macos-arm-vcpkg-dynamic",
+      "description": "macOS ARM dynamic vcpkg",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/macos-arm-vcpkg-dynamic",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "arm64",
+        "USE_VCPKG": "ON",
+        "WX_BUILD_STATIC": "OFF",
+        "VCPKG_TARGET_TRIPLET": "arm64-osx",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+
+    {
+      "name": "arm64-global-static",
+      "description": "ARM64 static system wxWidgets",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/arm64-global-static",
+      "cacheVariables": {
+        "USE_VCPKG": "OFF",
+        "WX_BUILD_STATIC": "ON",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "arm64-global-dynamic",
+      "description": "ARM64 dynamic system wxWidgets",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/arm64-global-dynamic",
+      "cacheVariables": {
+        "USE_VCPKG": "OFF",
+        "WX_BUILD_STATIC": "OFF",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "arm64-vcpkg-static",
+      "description": "ARM64 static vcpkg",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/arm64-vcpkg-static",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "USE_VCPKG": "ON",
+        "WX_BUILD_STATIC": "ON",
+        "VCPKG_TARGET_TRIPLET": "arm64-linux",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "arm64-vcpkg-dynamic",
+      "description": "ARM64 dynamic vcpkg",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/arm64-vcpkg-dynamic",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "USE_VCPKG": "ON",
+        "WX_BUILD_STATIC": "OFF",
+        "VCPKG_TARGET_TRIPLET": "arm64-linux",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+
+    {
+      "name": "windows-msvc-static",
+      "description": "Windows MSVC static using global wxWidgets",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/windows-msvc-static",
+      "cacheVariables": {
+        "USE_VCPKG": "OFF",
+        "WX_BUILD_STATIC": "ON",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_EXE_LINKER_FLAGS": "/SUBSYSTEM:WINDOWS",
+        "BUILD_SHARED_LIBS": "OFF"
+      }
+    },
+    {
+      "name": "windows-msvc-dynamic",
+      "description": "Windows MSVC dynamic using global wxWidgets",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/windows-msvc-dynamic",
+      "cacheVariables": {
+        "USE_VCPKG": "OFF",
+        "WX_BUILD_STATIC": "OFF",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_EXE_LINKER_FLAGS": "/SUBSYSTEM:WINDOWS"
+      }
+    },
+    {
+      "name": "windows-msvc-vcpkg-static",
+      "description": "Windows MSVC static using vcpkg",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/windows-msvc-vcpkg-static",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "USE_VCPKG": "ON",
+        "WX_BUILD_STATIC": "ON",
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded$<$<CONFIG:Debug>:Debug>",
+        "CMAKE_EXE_LINKER_FLAGS": "/SUBSYSTEM:WINDOWS",
+        "BUILD_SHARED_LIBS": "OFF"
+
+      }
+    },
+    {      "name": "windows-msvc-vcpkg-dynamic",
+      "description": "Windows MSVC dynamic using vcpkg",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build/windows-msvc-vcpkg-dynamic",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "USE_VCPKG": "ON",
+        "WX_BUILD_STATIC": "OFF",
+        "VCPKG_TARGET_TRIPLET": "x64-windows",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_EXE_LINKER_FLAGS": "/SUBSYSTEM:WINDOWS"
+      }
+    },
+    {
+      "name": "windows-mingw-static",
+      "description": "Windows MinGW static using global wxWidgets",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/windows-mingw-static",
+      "cacheVariables": {
+        "USE_VCPKG": "OFF",
+        "WX_BUILD_STATIC": "ON",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BUILD_SHARED_LIBS": "OFF"
+      }
+    },
+    {
+      "name": "windows-mingw-dynamic",
+      "description": "Windows MinGW dynamic using global wxWidgets",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/windows-mingw-dynamic",
+      "cacheVariables": {
+        "USE_VCPKG": "OFF",
+        "WX_BUILD_STATIC": "OFF",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "windows-mingw-vcpkg-static",
+      "description": "Windows MinGW static using vcpkg",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/windows-mingw-vcpkg-static",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "USE_VCPKG": "ON",
+        "WX_BUILD_STATIC": "ON",
+        "VCPKG_TARGET_TRIPLET": "x64-mingw-static",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BUILD_SHARED_LIBS": "OFF"
+      }
+    },
+    {
+      "name": "windows-mingw-vcpkg-dynamic",
+      "description": "Windows MinGW dynamic using vcpkg",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/windows-mingw-vcpkg-dynamic",
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "USE_VCPKG": "ON",
+        "WX_BUILD_STATIC": "OFF",
+        "VCPKG_TARGET_TRIPLET": "x64-mingw",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "linux-global-static", "configurePreset": "linux-global-static" },
+    { "name": "linux-global-dynamic", "configurePreset": "linux-global-dynamic" },
+    { "name": "linux-vcpkg-static", "configurePreset": "linux-vcpkg-static" },
+    { "name": "linux-vcpkg-dynamic", "configurePreset": "linux-vcpkg-dynamic" },
+
+    { "name": "freebsd-global-static", "configurePreset": "freebsd-global-static" },
+    { "name": "freebsd-global-dynamic", "configurePreset": "freebsd-global-dynamic" },
+    { "name": "freebsd-vcpkg-static", "configurePreset": "freebsd-vcpkg-static" },
+    { "name": "freebsd-vcpkg-dynamic", "configurePreset": "freebsd-vcpkg-dynamic" },
+
+    { "name": "macos-intel-global-static", "configurePreset": "macos-intel-global-static" },
+    { "name": "macos-intel-global-dynamic", "configurePreset": "macos-intel-global-dynamic" },
+    { "name": "macos-intel-vcpkg-static", "configurePreset": "macos-intel-vcpkg-static" },
+    { "name": "macos-intel-vcpkg-dynamic", "configurePreset": "macos-intel-vcpkg-dynamic" },
+
+    { "name": "macos-arm-global-static", "configurePreset": "macos-arm-global-static" },
+    { "name": "macos-arm-global-dynamic", "configurePreset": "macos-arm-global-dynamic" },
+    { "name": "macos-arm-vcpkg-static", "configurePreset": "macos-arm-vcpkg-static" },
+    { "name": "macos-arm-vcpkg-dynamic", "configurePreset": "macos-arm-vcpkg-dynamic" },
+
+    { "name": "arm64-global-static", "configurePreset": "arm64-global-static" },
+    { "name": "arm64-global-dynamic", "configurePreset": "arm64-global-dynamic" },
+    { "name": "arm64-vcpkg-static", "configurePreset": "arm64-vcpkg-static" },
+    { "name": "arm64-vcpkg-dynamic", "configurePreset": "arm64-vcpkg-dynamic" },
+
+    { "name": "windows-msvc-static", "configurePreset": "windows-msvc-static" },
+    { "name": "windows-msvc-dynamic", "configurePreset": "windows-msvc-dynamic" },
+    { "name": "windows-msvc-vcpkg-static", "configurePreset": "windows-msvc-vcpkg-static" },
+    { "name": "windows-msvc-vcpkg-dynamic", "configurePreset": "windows-msvc-vcpkg-dynamic" },
+
+    { "name": "windows-mingw-static", "configurePreset": "windows-mingw-static" },
+    { "name": "windows-mingw-dynamic", "configurePreset": "windows-mingw-dynamic" },
+    { "name": "windows-mingw-vcpkg-static", "configurePreset": "windows-mingw-vcpkg-static" },
+    { "name": "windows-mingw-vcpkg-dynamic", "configurePreset": "windows-mingw-vcpkg-dynamic" }
+  ]
+}

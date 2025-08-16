@@ -25,7 +25,7 @@ private:
     wxStaticText* _textBox = nullptr;
     wxFileDialog* _fileDiag = nullptr;
     wxMessageDialog* _errDiag = nullptr;
-    wxGridBagSizer* sizer = nullptr;
+    wxGridBagSizer* _sizer = nullptr;
     char* _filename = nullptr;
     size_t _filenameLen = 0;
     void PatchFile(wxCommandEvent&);

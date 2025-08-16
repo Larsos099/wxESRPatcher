@@ -6,7 +6,7 @@
 MainWindowFrame::MainWindowFrame()
 : wxFrame(nullptr, wxID_ANY, "wxESRPatcher", wxDefaultPosition, wxSize(270, 115))
 {
-    sizer = new wxGridBagSizer(5, 5);
+    _sizer = new wxGridBagSizer(5, 5);
 
     auto buttonSizer = new wxBoxSizer(wxHORIZONTAL);
     _patchButton = new wxButton(this, wxID_ANY, "Patch ISO");
@@ -16,16 +16,16 @@ MainWindowFrame::MainWindowFrame()
     buttonSizer->Add(_patchButton, 0, wxRIGHT, 5); // 5px spacing
     buttonSizer->Add(_unpatchButton, 0);
 
-    sizer->Add(buttonSizer, wxGBPosition(0, 0), wxGBSpan(1, 2), wxALL, 5);
+    _sizer->Add(buttonSizer, wxGBPosition(0, 0), wxGBSpan(1, 2), wxALL, 5);
 
     _textBox = new wxStaticText(this, wxID_ANY, "Ready to patch...");
-    sizer->Add(_textBox, wxGBPosition(1, 0), wxGBSpan(1, 2), wxALL | wxEXPAND, 10);
+    _sizer->Add(_textBox, wxGBPosition(1, 0), wxGBSpan(1, 2), wxALL | wxEXPAND, 10);
 
     // Only row 1 (text box) grows
-    sizer->AddGrowableRow(1);
+    _sizer->AddGrowableRow(1);
 
     this->SetMinSize(wxSize(270, 115));
-    this->SetSizer(sizer);
+    this->SetSizer(_sizer);
 
     // this->SetSize(270, 115);
 }
@@ -52,7 +52,7 @@ void MainWindowFrame::PatchFile(wxCommandEvent &) {
         _errDiag->ShowModal();
     }
     this->Layout();
-    sizer->Fit(this);
+    _sizer->Fit(this);
 }
 
 void MainWindowFrame::UnpatchFile(wxCommandEvent &) {
@@ -77,7 +77,7 @@ void MainWindowFrame::UnpatchFile(wxCommandEvent &) {
             _errDiag->ShowModal();
         }
     this->Layout();
-    sizer->Fit(this);
+    _sizer->Fit(this);
     }
 
 
